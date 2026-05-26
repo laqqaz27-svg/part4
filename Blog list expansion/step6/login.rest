@@ -1,0 +1,92 @@
+### 
+
+@baseUrl = http://localhost:3003
+@username = testuser
+@password = password123
+
+### 
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "name": "Test User",
+  "password": "{{password}}"
+}
+
+### 
+POST {{baseUrl}}/api/login
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+### 
+GET {{baseUrl}}/api/blogs
+
+###
+POST {{baseUrl}}/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWQiOiI2NzM0NTAwMzk4YmY2NDAwMTZkNDY3MzAiLCJpYXQiOjE3MzE0NjI4ODcsImV4cCI6MTczMTQ2NjQ4N30.mT-VXe91kx0PfgCt8VL0vC6pO8xmK9Y2f5L3jQ4rWnE
+
+{
+  "title": "Testing Token Authentication",
+  "author": "Test User",
+  "url": "https://example.com/token-auth",
+  "likes": 0
+}
+
+### 5. Get all users with their blogs
+GET {{baseUrl}}/api/users
+
+### 
+POST {{baseUrl}}/api/blogs
+Content-Type: application/json
+
+{
+  "title": "No Token Blog",
+  "author": "Test User",
+  "url": "https://example.com/no-token",
+  "likes": 0
+}
+
+### 
+POST {{baseUrl}}/api/blogs
+Content-Type: application/json
+Authorization: Bearer invalidtoken123
+
+{
+  "title": "Invalid Token Blog",
+  "author": "Test User",
+  "url": "https://example.com/invalid-token",
+  "likes": 0
+}
+
+### 
+PUT {{baseUrl}}/api/blogs/673450039abf640016d46731
+Content-Type: application/json
+
+{
+  "likes": 5
+}
+
+### 
+DELETE {{baseUrl}}/api/blogs/673450039abf640016d46731
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWQiOiI2NzM0NTAwMzk4YmY2NDAwMTZkNDY3MzAiLCJpYXQiOjE3MzE0NjI4ODcsImV4cCI6MTczMTQ2NjQ4N30.mT-VXe91kx0PfgCt8VL0vC6pO8xmK9Y2f5L3jQ4rWnE
+
+### 
+DELETE {{baseUrl}}/api/blogs/673450039abf640016d46731
+
+### QUICK START TESTING FLOW:
+### 1. Run step 1 (Register user)
+### 2. Run step 2 (Login - copy token from response)
+### 3. Update the token in steps 4 and 9
+### 4. Run step 3 (Get blogs - note a blog ID)
+### 5. Run step 4 (Create blog with token)
+### 6. Run step 3 again (Get blogs - should see new blog)
+### 7. Try step 6 (should fail - no token)
+### 8. Try step 7 (should fail - invalid token)
+### 9. Run step 8 (Update likes with valid blog ID)
+### 10. Run step 9 (Delete blog - your own blog)

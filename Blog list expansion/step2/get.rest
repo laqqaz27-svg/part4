@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:3003
+
+
+GET {{baseUrl}}/api/blogs
+
+###
+
+# @name createBlog
+POST {{baseUrl}}/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Blog to update",
+  "author": "Tester",
+  "url": "http://example.com/update-target",
+  "likes": 1
+}
+
+###
+
+@blogId = {{createBlog.response.body.id}}
+PUT {{baseUrl}}/api/blogs/{{blogId}}
+Content-Type: application/json
+
+{
+  "likes": 100
+}
+
+###
+
+GET {{baseUrl}}/api/blogs

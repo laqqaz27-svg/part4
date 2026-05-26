@@ -1,0 +1,11 @@
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer REPLACE_WITH_VALID_TOKEN
+
+{
+  "title": "Step 8 token extractor example",
+  "author": "Token User",
+  "url": "https://example.com/step8",
+  "likes": 1
+}

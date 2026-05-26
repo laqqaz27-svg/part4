@@ -1,0 +1,16 @@
+{
+  "name": "step5",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": " node --test "
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "express": "^5.2.1"
+  }
+}

@@ -1,0 +1,10 @@
+### 
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Step 11 unauthorized example",
+  "author": "No Token",
+  "url": "https://example.com/step11",
+  "likes": 0
+}

@@ -1,0 +1,39 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+	"title": "full stack content",
+	"author": "Full Stack Open",
+	"url": "https://fullstackopen.com",
+	"likes": 5
+}
+
+### 
+# POST http://localhost:3003/api/login
+# Content-Type: application/json
+#
+# {
+#   "username": "root",
+#   "password": "sekret"
+# }
+
+GET http://localhost:3003/api/blogs
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "think and grow rich",
+    "author": "Napoleon Hill",
+    "url": "https://example.com/think-and-grow-rich",
+    "likes": 10
+}
+
+###
+# POST http://localhost:3003/api/login
+# Content-Type: application/json
+# {
+#   "username": "root",
+#   "password": "sekret"
+# }
